@@ -1,5 +1,5 @@
 Title: SQL from Sparse Files or Data (Table) Nodes
-Type: Story
+Type: Feature
 Request Date: 2022-02-26
 Update Date: 2022-02-26
 Status: New
