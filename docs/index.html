@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tasks</title>
+    
+    <!--Libraries-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    
+    <style>
+        /*Text Highlights*/
+        span.ProjectLabel {
+            color: lightcoral;
+        }
+        span.FeatureLabel {
+            color: mediumpurple;
+        }
+        span.StoryLabel {
+            color: lightskyblue;
+        }
+        /*Text Highlights*/
+        span.RootTaskProjectLabel {
+            color: indianred;
+        }
+        span.RootTaskFeatureLabel {
+            color: rebeccapurple;
+        }
+        span.RootTaskStoryLabel {
+            color: royalblue;
+        }
+        /*Text Highlights*/
+        span.IDLink {
+            color: steelblue;
+        }
+        span.Tag {
+            color: steelblue;
+        }
+        
+        /*Table*/
+        #custom-preface table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          table-layout: auto; 
+        }
+        #custom-preface td,
+        #custom-preface th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        #custom-preface tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        
+        /*Modal Box*/
+        /* The Modal (background) */
+        div.modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        /* Modal Content */
+        div.modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+        /* The Close Button */
+        span.close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        span.close:hover,
+        span.close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!--Top Nav Bar-->
+<div>
+    <p>
+        <a href="#" onclick="showPage('MainPage')">Summary</a>
+        <a href="#" onclick="showPage('NewestPage')">Added This Week</a>
+        <a href="#" onclick="showPage('CompletedPage')">Completed This Week</a>
+        <a href="#" onclick="showPage('NewActionsPage')">New Actions This Week</a>
+        <a href="#" onclick="showPage('Backlog')">Backlog</a>
+    </p>
+    <p>
+        <span>Generated on: 2022-04-28</span>
+        <span>For the week: 2022-04-21 to 2022-04-28</span>
+    </p>
+</div>
+
+<!--Hidden Modal Data-->
+<div>
+    <!-- The Modals -->
+        <div id="popupModal-0" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>README</h2>
+                <p><em></em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Project] Augment Task Manager System</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Augment Task Manager System</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 1</span></p>
+                    <h3>Overview</h3>
+                    <div><p>We need to generalize Project Nine's ticket system so it: more easily transferrable to other projects; Support collaboration (e.g. Vincent's map project).</p>
+</div>
+                    <p><em>Labels: Management</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Story] Design Space Exploration for Augmented Reusable Task Management System from Original P9 Ticket System</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Augment Task Manager System/<span class="StoryLabel">[Story]</span> Design Space Exploration</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 3</span></p>
+                    <h3>Overview</h3>
+                    <div><p>Explore the programming options/architecture framework that we can use for evolving the original C# folder-specific .Net Core solution.</p>
+</div>
+                    <h3>Description</h3>
+                    <div><p>Here are a few goals:</p>
+<ol>
+<li>Avoid programming as much as possible - explore a process-oriented solution;</li>
+<li>We are determined to use a compilation process, Github backed repository and all existing Visual Studio Code editing environment - aka. the frontend is only for viewing process. See what existing tools we can utilize to craft such an integrated process instead of writing new tools.</li>
+<li>Explore whether we can support collaboration simply through a convention surronding using Github repos instead of requiring a long-running server; Consider using Github CI/CD for automatically compiling static HTML pages from new commits of Markdown files.</li>
+</ol>
+</div>
+                    <p><em>Labels: Management</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Feature] Branding Design</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Branding Design</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 7</span></p>
+                    <h3>Overview</h3>
+                    <div><p>Sooner or later, we need better name and logo.</p>
+</div>
+                    <p><em>Labels: Management</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-4" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Logo Design</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Branding Design</em></p>
+                    <h3>Overview</h3>
+                    <div><p>Design and settle on a logo - this is also related to its name: What does <strong>Parcel</strong> mean? The most relevant object is the <em>.parcel</em> file format, but the most significant feature might be the Table editing capabilities.</p>
+<p>See whether we can generalize it with some &quot;procedural&quot; related elements: e.g. give it some CAD software-like abstract curves and band shapes (I am thinking of Maya and Visual Studio's icon); Or adopt the trend in old-classical 3D software industry: <strong>animal/totem</strong> shapes in molded metal plates with mystical animals (dragon, snake).</p>
+</div>
+            </div>
+    
+        </div>   
+        <div id="popupModal-5" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Name Design</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Branding Design</em></p>
+                    <h3>Overview</h3>
+                    <div><p>Design and settle on a name: currently its Parcel.</p>
+</div>
+            </div>
+    
+        </div>   
+        <div id="popupModal-6" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Feature] Make it Fun and Awesome</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Make it Fun and Awesome</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 5</span></p>
+                    <h3>Overview</h3>
+                    <div><p>Business is serious, but software can be more vibrant especially for modern business.</p>
+</div>
+                    <h3>Description</h3>
+                    <div><p>Explore ways around animation, colorful UI design, and methodologies of software usage to enhance the overall &quot;joy&quot; of using this app.</p>
+<p>For instance, one direction we can explore is the &quot;technical analyst&quot; along the line of Houdini users: having lots of power but each application focuses on one aspect at a time, technical in an iterative and scripting and procedural way but not about programming and debugging at a low level, focus on analyzing and procedural generation and modeling.</p>
+<p>Besides <strong>iterative interactivity on data operations</strong>, we can also explore general GUI vibrance along the line of Davinci Resolve - make it &quot;<em>designer-oriented</em>&quot; rather than office workers or technical nerds oriented: through clever use of <strong>colors</strong>, <strong>layouts</strong> and certain <strong>helpful GUI hints</strong> (e.g. many ways of visualizing and experimenting with data, emphasis reuse and instancing of nodes as much as possible to encourage even more iterative design, encourage super-fast software booting and quick scratch use like Octave/Matlab for ordinary computational and <em>data-processing tasks</em>), we make this working environment <em>welcoming, fun, and inspiring</em>.</p>
+</div>
+                    <p><em>Labels: Management</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-7" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Feature] SQL from Sparse Files or Data (Table) Nodes</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> SQL from Sparse Files</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 4</span></p>
+                    <h3>Overview</h3>
+                    <div><p>We should explore and make it explicit that being able to utilize SQL directly for query, modeling and computation purpose is one major feature of our application.</p>
+</div>
+                    <h3>Description</h3>
+                    <div><p>I think it would make it more apparent and appealing if:</p>
+<ul>
+<li>Our final program is really small and self-contained in size (<em>ideally a single-file</em>), so people initially don't expect much from it: and it can even be that for some people, doing SQL queries on tables without creating a database is all they want to do with it.</li>
+</ul>
+</div>
+                    <p><em>Labels: Management</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Story] Early Conceptual Design</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Early Conceptual Design</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 2</span></p>
+                    <h3>Overview</h3>
+                    <div><p>Design first; Implement second.</p>
+</div>
+                    <h3>Description</h3>
+                    <div><p>Use many examples to explore design space; Optimize process; Figure out whether it's worth doing at all.</p>
+</div>
+                    <p><em>Labels: Management</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-9" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Office Automation Based Example Use</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Explore Design Space through Examples</em></p>
+                    <h3>Overview</h3>
+                    <div><p>Explore whether it's more efficient to use Colab/ipynotebook/Python, Node JS, MATLAB/Octave or Parcel for ordinary automation and computation and modeling tasks.</p>
+</div>
+                    <h3>Description</h3>
+                    <div><p>Consider:</p>
+<ol>
+<li>Storage efficiency</li>
+<li>Prototype efficiency</li>
+<li>Code reusability and readability</li>
+</ol>
+</div>
+                    <p><em>Labels: Example</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-10" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Table-Editing Based Data Storage Example Use</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Explore Design Space through Examples</em></p>
+                    <h3>Overview</h3>
+                    <div><p>Explore examples focusing on ordinary Excel-like table use.</p>
+</div>
+                    <h3>Description</h3>
+                    <div><p>We have this specific scenario in mind: The owner or manager of a small business wants to use Parcel for bookkeeping its <strong>Employee Information</strong>, <strong>Goods Stocking Information</strong>, and maybe keep track of some <strong>internal reports</strong>. Usually those tasks can be done with a single or a few Excel spreadsheets - how can we do that in Parcel and what's the advantage of doing it this way?</p>
+</div>
+                    <p><em>Labels: Example</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-11" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Story] Studies and Sampling</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Studies and Sampling</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 6</span></p>
+                    <h3>Overview</h3>
+                    <div><p>Casually read and take notes - don't intend to use them as references at all: but intend to gain inspirations on how we might further improve those tools by looking at what features they currently have.</p>
+</div>
+                    <h3>Description</h3>
+                    <div><ul>
+<li>Node style references: UE4 Blueprint Nodes, Blender Nodes, TerraGen Nodes, World Machine Nodes, Houdini Nodes, World Machine Nodes, Grasshooper Nodes. ¶We will be mostly following World Machine for its clarity and flow directions.
+<ul>
+<li>Study Houdini PDG and World Machine node flow and related implementation algorithms for our programming needs.</li>
+</ul>
+</li>
+<li>Read and see what Tableau and Power BI offer and whether there are elements we can borrow and what areas can we improve. Notice those two fall into the catagory of &quot;data visualization&quot; and &quot;business intelligence&quot;, and we should implement this separate from both <strong>data storage</strong> and <strong>data processing/data analysis/machine learning</strong>.
+<ul>
+<li>For Tableau, we can explore whether it's <em>easily</em> possible to extend (ideally through extensions rather than as core functionality) Parcel for such client-facing visualization purpose.</li>
+<li>Study those comments: https://www.reddit.com/r/PowerBI/comments/glepgr/power_bi_vs_tableau/, https://www.reddit.com/r/datascience/comments/q896yh/do_companies_use_tableau_or_powerbi_more/, https://www.reddit.com/r/PowerBI/comments/9r3p11/power_bi_vs_tableau/</li>
+<li>Also notice for &quot;business intelligence/data visualization/reporting&quot; use, <strong>look is everything</strong>! &quot;Enterprise BI tools are undervalued by data scientists. They are a very quick and easy way to provide customers with a slick UX, which can make a huge difference to selling your solution.&quot; Since Power BI is so similar to Excel we don't need to spend more time on it - give Tableau a first-hand trial and see what it can do so we gain more inspirations and learn how it does things.</li>
+</ul>
+</li>
+</ul>
+</div>
+                    <strong>Destination</strong>
+                    <div><ul>
+<li>Study above and make <strong>use references</strong> including design specs etc - no need to take notes about those existing platforms - make original design decisions for our own solution and put directly inside <strong>Notes</strong> or <strong>Designs</strong> folder.</li>
+</ul>
+</div>
+                    <p><em>Labels: Design, Study</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-12" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>My New Task</h2>
+                <p><em></em></p>
+                    <h3>Overview</h3>
+                    <div><p>Overview of task.</p>
+</div>
+                    <strong>Destination</strong>
+                    <div><ul>
+<li>Place to put output files.</li>
+</ul>
+</div>
+                    <h3>Progress</h3>
+                    <div><ul>
+<li>20220119: My progress record</li>
+</ul>
+</div>
+            </div>
+    
+        </div>   
+</div>
+
+<div class="page" id="MainPage">
+    <strong>Projects</strong>
+    <div id="organization-tree">
+        <ul>
+                    <li>Augment Task Manager System
+                        <ul>
+                                    <li>[Story] Design Space Exploration
+                                    </li>
+                        </ul>
+                    </li>
+                    <li>Parcel Editor
+                        <ul>
+                                    <li>[Feature] Branding Design
+                                    </li>
+                                    <li>[Feature] Make it Fun and Awesome
+                                    </li>
+                                    <li>[Feature] SQL from Sparse Files
+                                    </li>
+                                    <li>[Story] Early Conceptual Design
+                                    </li>
+                                    <li>[Story] Explore Design Space through Examples
+                                    </li>
+                                    <li>[Story] Studies and Sampling
+                                    </li>
+                        </ul>
+                    </li>
+        </ul>
+    </div>
+    <strong>Next ticket ID: 000008</strong>
+        <table id="main-table" class="display">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Path</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>E/C/R (in hrs)</th>
+                <th>Labels</th>
+                <th>Update Date</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td onclick="showModal(0)">README</td>
+                    <td></td>
+                    <td>New </td>
+                    <td></td>
+                    <td>0/0/0</td>
+                    <td></td>
+                    <td>2022-04-28</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(1)"><span class="RootTaskProjectLabel">(#000001) Augment Task Manager System</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Augment Task Manager System</td>
+                    <td>New </td>
+                    <td>Low</td>
+                    <td>0/0/0</td>
+                    <td>Management</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(2)"><span class="RootTaskStoryLabel">(#000003) Design Space Exploration for Augmented Reusable Task Management System from Original P9 Ticket System</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Augment Task Manager System/<span class="StoryLabel">[Story]</span> Design Space Exploration</td>
+                    <td>New </td>
+                    <td>High</td>
+                    <td>0/0/0</td>
+                    <td>Management</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(3)"><span class="RootTaskFeatureLabel">(#000007) Branding Design</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Branding Design</td>
+                    <td>New </td>
+                    <td>Low</td>
+                    <td>5/0/0</td>
+                    <td>Management</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(4)">Logo Design</td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Branding Design</td>
+                    <td>New </td>
+                    <td></td>
+                    <td>0/0/0</td>
+                    <td></td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(5)">Name Design</td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Branding Design</td>
+                    <td>New </td>
+                    <td></td>
+                    <td>0/0/0</td>
+                    <td></td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(6)"><span class="RootTaskFeatureLabel">(#000005) Make it Fun and Awesome</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Make it Fun and Awesome</td>
+                    <td>New </td>
+                    <td>High</td>
+                    <td>0/0/0</td>
+                    <td>Management</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(7)"><span class="RootTaskFeatureLabel">(#000004) SQL from Sparse Files or Data (Table) Nodes</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> SQL from Sparse Files</td>
+                    <td>New </td>
+                    <td>High</td>
+                    <td>0/0/0</td>
+                    <td>Management</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(8)"><span class="RootTaskStoryLabel">(#000002) Early Conceptual Design</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Early Conceptual Design</td>
+                    <td>New </td>
+                    <td>High</td>
+                    <td>0/0/0</td>
+                    <td>Management</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(9)">Office Automation Based Example Use</td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Explore Design Space through Examples</td>
+                    <td>New </td>
+                    <td></td>
+                    <td>0/0/0</td>
+                    <td>Example</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(10)">Table-Editing Based Data Storage Example Use</td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Explore Design Space through Examples</td>
+                    <td>New </td>
+                    <td></td>
+                    <td>0/0/0</td>
+                    <td>Example</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(11)"><span class="RootTaskStoryLabel">(#000006) Studies and Sampling</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Studies and Sampling</td>
+                    <td>New </td>
+                    <td>Low</td>
+                    <td>0/0/0</td>
+                    <td>Design, Study</td>
+                    <td>2022-02-26</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(12)">My New Task</td>
+                    <td></td>
+                    <td>New </td>
+                    <td></td>
+                    <td>0/0/0</td>
+                    <td></td>
+                    <td>2022-01-20</td>
+                </tr>
+            </tbody>
+        </table>
+    
+    <!--Preface-->
+    <div id="custom-preface">
+        <!--Ignore-->
+<p>Stack: <span class="IDLink" onclick="showTaskByID('000001')">#000001</span></p>
+<h1 id="current-phase-design">Current Phase: Design</h1>
+<p>Just do the design.</p>
+
+    </div>
+</div>
+
+<div class="page" id="NewestPage">
+        <table id="newest-table" class="display">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Path</th>
+                <th>Request Date</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Labels</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td onclick="showModal(0)">README</td>
+                    <td></td>
+                    <td>2022-04-28</td>
+                    <td></td>
+                    <td>New </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
+<div class="page" id="CompletedPage">
+        <table id="completed-table" class="display">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Path</th>
+                <th>Status</th>
+                <th>E/C/R (in hrs)</th>
+                <th>Update Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+</div>
+
+<div class="page" id="NewActionsPage">
+        <table id="new-actions-table" class="display">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Path</th>
+                <th>Status</th>
+                <th>Mentioning</th>
+                <th>Labels</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+</div>
+
+<div class="page" id="Backlog">
+    <strong>All tasks that are done:</strong>
+        <table id="backlog-table" class="display">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Path</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>E/C/R (in hrs)</th>
+                <th>Labels</th>
+                <th>Update Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+</div>
+
+<!--Libraries-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+
+<!--Global Variables-->
+<script>
+var pagesList = [];  // All tabbed pages
+var tablesList = {};  // All data tables
+var currentModal = null;
+</script>
+
+<!--Helper Functions-->
+<script>
+function showPage(toShow) {
+    pagesList.forEach((toHide) => document.getElementById(toHide).style.display='none');
+    document.getElementById(toShow).style.display='block';
+}
+function showModal(index) {
+    if (currentModal) {
+        closeModal()
+    }
+    
+    currentModal = document.getElementById("popupModal-" + index);
+    currentModal.style.display = "block";
+}
+function closeModal() {
+    currentModal.style.display = "none";
+    currentModal = null
+}
+function showTaskByID(id) {
+    id = parseInt(id, 10)
+    let idLookUp = [1, 8, 2, 7, 6, 11, 3];
+    if (id >= 1 && id <= idLookUp.length) {
+        let index = id - 1;
+        showModal(idLookUp[index]);
+    }
+}
+function search(item) { // Search in main table
+    let mainTable = tablesList['main-table'];
+    mainTable.search(item);
+    mainTable.draw();
+}
+</script>
+
+<!--Scripts-->
+<script>
+// Document Ready
+$(document).ready( function () {
+    // Update tables list
+    document.querySelectorAll('.display').forEach(table => {
+        if (table.nodeName === 'TABLE') {            
+            let options = {
+                pageLength: 100
+            };            
+            tablesList[table.id] = $(`#${table.id}`).DataTable(options);
+        }
+    })
+    
+    // Update page list
+    document.querySelectorAll('.page').forEach(p => {
+        pagesList.push(p.id)
+    })
+    
+    // Populate project organization tree
+    $('#organization-tree')
+        .on('select_node.jstree', (e, data) => {
+            search(data.node.text.trim());
+        })
+        .jstree();
+    
+    // Default display
+    showPage(pagesList[0]);
+} );
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target === currentModal) {
+    currentModal.style.display = "none";
+  }
+}
+</script>
+</body>
+</html>
