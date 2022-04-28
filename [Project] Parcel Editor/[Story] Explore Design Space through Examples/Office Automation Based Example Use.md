@@ -1,4 +1,4 @@
-Labels: Example
+Tags: Example
 
 Request Date: 2022-02-26
 Update Date: 2022-02-26

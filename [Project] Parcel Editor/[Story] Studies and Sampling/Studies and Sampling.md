@@ -2,7 +2,7 @@ Type: Story
 Request Date: 2022-02-26
 Update Date: 2022-02-26
 Status: New
-Labels: Design, Study
+Tags: Design, Study
 Priority: Low
 ID: 000006
 
