@@ -211,6 +211,38 @@
         <div id="popupModal-7" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Feature] Parcel Online (Experimental)</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Parcel Online (Experimental)/<span class="FeatureLabel">[Feature]</span> Parcel Online (Experimental).md</em></p>
+                    <h3>Overview</h3>
+                    <div><p>Vincent mentioned some enterprise will prefer a pure-web based environment; This will require not just server-client interfacing but full cloud support.</p>
+</div>
+                    <h3>Description</h3>
+                    <div><p>For a prototype setup, it will suffice to make front-end serverless and responsible only for drawing and generating the node graph network.</p>
+</div>
+                    <strong>Destination</strong>
+                    <div><ul>
+<li>For formal design/interface spec, see this <a href="https://github.com/Charles-Zhang-Parcel/ParcelDesignManage/blob/main/Designs/Specification%20Doc/Parcel%20Online%20(Web%20Frontend).md">design document</a>.</li>
+</ul>
+</div>
+                    <h3>Notes</h3>
+                    <div><p>The following things need to be done:</p>
+<ol>
+<li>The server needs a way to provide the front-end with available node definitions</li>
+<li>The front-end should have a way to communicate/serialize the output graph to server for execution; The server should be able to respond with some outputs</li>
+</ol>
+<p>Notice this S/C approach is at the moment <strong>different from</strong> Parcel's workflow-oriented design: aka. <em>ideally the server itself should be defined by a Parcel graph, and somehow the client is merely interfacing with the exposed interfaces within that server graph in order to affect the state of the server</em>.</p>
+</div>
+                    <h3>Progress</h3>
+                    <div><ul>
+<li>20220428: Initialize Parcel Web, <a href="https://github.com/hsinyuu">Vincent</a> will be fully responsible for it.</li>
+</ul>
+</div>
+            </div>
+    
+        </div>   
+        <div id="popupModal-8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
                 <h2>[Root Feature] SQL from Sparse Files or Data (Table) Nodes</h2>
                 <p><em><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> SQL from Sparse Files</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 4</span></p>
                     <h3>Overview</h3>
@@ -226,7 +258,7 @@
             </div>
     
         </div>   
-        <div id="popupModal-8" class="modal">
+        <div id="popupModal-9" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h2>[Root Story] Early Conceptual Design</h2>
@@ -241,7 +273,7 @@
             </div>
     
         </div>   
-        <div id="popupModal-9" class="modal">
+        <div id="popupModal-10" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h2>Office Automation Based Example Use</h2>
@@ -261,7 +293,7 @@
             </div>
     
         </div>   
-        <div id="popupModal-10" class="modal">
+        <div id="popupModal-11" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h2>Table-Editing Based Data Storage Example Use</h2>
@@ -276,7 +308,7 @@
             </div>
     
         </div>   
-        <div id="popupModal-11" class="modal">
+        <div id="popupModal-12" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h2>[Root Story] Studies and Sampling</h2>
@@ -309,7 +341,29 @@
             </div>
     
         </div>   
-        <div id="popupModal-12" class="modal">
+        <div id="popupModal-13" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>[Root Project] Parcel Version 1.0</h2>
+                <p><em><span class="ProjectLabel">[Project]</span> Parvel Version 1.0/<span class="ProjectLabel">[Project]</span> Parvel Version 1.0.md</em><span>&nbsp;&nbsp;&nbsp;&nbsp;ID: 8</span></p>
+                    <h3>Overview</h3>
+                    <div><p>As Prototype V1 is well functional, we can think of making it into an alpha product just to test the overall usability of this workflow based approach.</p>
+</div>
+                    <strong>Destination</strong>
+                    <div><ul>
+<li>PENDING, likely on <a href="https://github.com/Charles-Zhang-Parcel/ParcelTasks/releases">Github Release</a></li>
+</ul>
+</div>
+                    <h3>Progress</h3>
+                    <div><ul>
+<li>20220428: Staging for new phase of Parcel development, aka. practical testing.</li>
+</ul>
+</div>
+                    <p><em>Labels: #Publishing</em></p>
+            </div>
+    
+        </div>   
+        <div id="popupModal-14" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h2>My New Task</h2>
@@ -348,6 +402,11 @@
                                     </li>
                                     <li>[Feature] Make it Fun and Awesome
                                     </li>
+                                    <li>[Feature] Parcel Online (Experimental)
+                                        <ul>
+                                                    <li>[Feature] Parcel Online (Experimental).md</li>
+                                        </ul>
+                                    </li>
                                     <li>[Feature] SQL from Sparse Files
                                     </li>
                                     <li>[Story] Early Conceptual Design
@@ -358,9 +417,17 @@
                                     </li>
                         </ul>
                     </li>
+                    <li>Parvel Version 1.0
+                        <ul>
+                                    <li>[Project] Parvel Version 1.0.md
+                                    </li>
+                        </ul>
+                    </li>
+                    <li>Parvel Version 1.0.md
+                    </li>
         </ul>
     </div>
-    <strong>Next ticket ID: 000008</strong>
+    <strong>Next ticket ID: 000009</strong>
         <table id="main-table" class="display">
             <thead>
             <tr>
@@ -438,7 +505,16 @@
                     <td>2022-02-26</td>
                 </tr>
                 <tr>
-                    <td onclick="showModal(7)"><span class="RootTaskFeatureLabel">(#000004) SQL from Sparse Files or Data (Table) Nodes</span></td>
+                    <td onclick="showModal(7)"><span class="RootTaskFeatureLabel">Parcel Online (Experimental)</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Parcel Online (Experimental)/<span class="FeatureLabel">[Feature]</span> Parcel Online (Experimental).md</td>
+                    <td>New </td>
+                    <td></td>
+                    <td>0/0/0</td>
+                    <td></td>
+                    <td>2022-04-28</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(8)"><span class="RootTaskFeatureLabel">(#000004) SQL from Sparse Files or Data (Table) Nodes</span></td>
                     <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> SQL from Sparse Files</td>
                     <td>New </td>
                     <td>High</td>
@@ -447,7 +523,7 @@
                     <td>2022-02-26</td>
                 </tr>
                 <tr>
-                    <td onclick="showModal(8)"><span class="RootTaskStoryLabel">(#000002) Early Conceptual Design</span></td>
+                    <td onclick="showModal(9)"><span class="RootTaskStoryLabel">(#000002) Early Conceptual Design</span></td>
                     <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Early Conceptual Design</td>
                     <td>New </td>
                     <td>High</td>
@@ -456,7 +532,7 @@
                     <td>2022-02-26</td>
                 </tr>
                 <tr>
-                    <td onclick="showModal(9)">Office Automation Based Example Use</td>
+                    <td onclick="showModal(10)">Office Automation Based Example Use</td>
                     <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Explore Design Space through Examples</td>
                     <td>New </td>
                     <td></td>
@@ -465,7 +541,7 @@
                     <td>2022-02-26</td>
                 </tr>
                 <tr>
-                    <td onclick="showModal(10)">Table-Editing Based Data Storage Example Use</td>
+                    <td onclick="showModal(11)">Table-Editing Based Data Storage Example Use</td>
                     <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Explore Design Space through Examples</td>
                     <td>New </td>
                     <td></td>
@@ -474,7 +550,7 @@
                     <td>2022-02-26</td>
                 </tr>
                 <tr>
-                    <td onclick="showModal(11)"><span class="RootTaskStoryLabel">(#000006) Studies and Sampling</span></td>
+                    <td onclick="showModal(12)"><span class="RootTaskStoryLabel">(#000006) Studies and Sampling</span></td>
                     <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="StoryLabel">[Story]</span> Studies and Sampling</td>
                     <td>New </td>
                     <td>Low</td>
@@ -483,7 +559,16 @@
                     <td>2022-02-26</td>
                 </tr>
                 <tr>
-                    <td onclick="showModal(12)">My New Task</td>
+                    <td onclick="showModal(13)"><span class="RootTaskProjectLabel">(#000008) Parcel Version 1.0</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parvel Version 1.0/<span class="ProjectLabel">[Project]</span> Parvel Version 1.0.md</td>
+                    <td>New </td>
+                    <td>High</td>
+                    <td>0/0/0</td>
+                    <td>#Publishing</td>
+                    <td>2022-04-28</td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(14)">My New Task</td>
                     <td></td>
                     <td>New </td>
                     <td></td>
@@ -525,6 +610,22 @@
                     <td>New </td>
                     <td></td>
                 </tr>
+                <tr>
+                    <td onclick="showModal(7)"><span class="RootTaskFeatureLabel">Parcel Online (Experimental)</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Parcel Online (Experimental)/<span class="FeatureLabel">[Feature]</span> Parcel Online (Experimental).md</td>
+                    <td>2022-04-28</td>
+                    <td></td>
+                    <td>New </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(13)"><span class="RootTaskProjectLabel">(#000008) Parcel Version 1.0</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parvel Version 1.0/<span class="ProjectLabel">[Project]</span> Parvel Version 1.0.md</td>
+                    <td>2022-04-28</td>
+                    <td>High</td>
+                    <td>New </td>
+                    <td>#Publishing</td>
+                </tr>
             </tbody>
         </table>
 </div>
@@ -557,6 +658,20 @@
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td onclick="showModal(7)"><span class="RootTaskFeatureLabel">Parcel Online (Experimental)</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parcel Editor/<span class="FeatureLabel">[Feature]</span> Parcel Online (Experimental)/<span class="FeatureLabel">[Feature]</span> Parcel Online (Experimental).md</td>
+                    <td>New </td>
+                    <td>20220428</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td onclick="showModal(13)"><span class="RootTaskProjectLabel">(#000008) Parcel Version 1.0</span></td>
+                    <td><span class="ProjectLabel">[Project]</span> Parvel Version 1.0/<span class="ProjectLabel">[Project]</span> Parvel Version 1.0.md</td>
+                    <td>New </td>
+                    <td>20220428</td>
+                    <td>#Publishing</td>
+                </tr>
             </tbody>
         </table>
 </div>
@@ -612,7 +727,7 @@ function closeModal() {
 }
 function showTaskByID(id) {
     id = parseInt(id, 10)
-    let idLookUp = [1, 8, 2, 7, 6, 11, 3];
+    let idLookUp = [1, 9, 2, 8, 6, 12, 3, 13];
     if (id >= 1 && id <= idLookUp.length) {
         let index = id - 1;
         showModal(idLookUp[index]);
